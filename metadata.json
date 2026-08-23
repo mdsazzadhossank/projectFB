@@ -1,0 +1,6 @@
+{
+  "name": "MessageHub - Unified Messaging Dashboard",
+  "description": "Premium unified messaging dashboard for Facebook Messenger and WhatsApp Business with conversation management, analytics, contacts, and channel integrations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
