@@ -21,24 +21,42 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   useEffect(() => {
     const root = document.documentElement;
-    let actualTheme: 'light' | 'dark' = 'light';
+
+    const updateTheme = () => {
+      let actualTheme: 'light' | 'dark' = 'light';
+
+      if (theme === 'system') {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        actualTheme = prefersDark ? 'dark' : 'light';
+      } else {
+        actualTheme = theme;
+      }
+
+      setResolvedTheme(actualTheme);
+
+      if (actualTheme === 'dark') {
+        root.classList.add('dark');
+        document.body.classList.add('dark');
+      } else {
+        root.classList.remove('dark');
+        document.body.classList.remove('dark');
+      }
+    };
+
+    updateTheme();
 
     if (theme === 'system') {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      actualTheme = prefersDark ? 'dark' : 'light';
-    } else {
-      actualTheme = theme;
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      const handleChange = () => updateTheme();
+      mediaQuery.addEventListener('change', handleChange);
+      return () => mediaQuery.removeEventListener('change', handleChange);
     }
 
-    setResolvedTheme(actualTheme);
-
-    if (actualTheme === 'dark') {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
+    try {
+      localStorage.setItem('messagehub_theme', theme);
+    } catch {
+      // LocalStorage error fallback
     }
-
-    localStorage.setItem('messagehub_theme', theme);
   }, [theme]);
 
   const setTheme = (newTheme: Theme) => {
