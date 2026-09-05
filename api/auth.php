@@ -20,8 +20,16 @@ function require_api_auth(): void
         return; // auth disabled when no secret configured (development mode)
     }
 
-    $given = '';
-    if (function_exists('getallheaders')) {
+    // Prefer $_SERVER: headers are exposed as HTTP_<NAME> on EVERY PHP SAPI
+    // (Apache module, FastCGI, PHP-FPM, LiteSpeed…). getallheaders() is only
+    // guaranteed on the Apache module and is missing on many shared hosts —
+    // relying on it alone makes valid requests fail with 401.
+    $given = isset($_SERVER['HTTP_X_MESSAGEHUB_SECRET'])
+        ? (string) $_SERVER['HTTP_X_MESSAGEHUB_SECRET']
+        : '';
+
+    // Fallback: parse raw headers when $_SERVER does not expose it (rare).
+    if ($given === '' && function_exists('getallheaders')) {
         $headers = getallheaders();
         $given = isset($headers['X-MessageHub-Secret']) ? (string) $headers['X-MessageHub-Secret'] : '';
     }
