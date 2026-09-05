@@ -185,13 +185,19 @@ export const MessagingProvider: React.FC<{ children: React.ReactNode }> = ({ chi
 
         if (cancelled) return;
 
-        const convs = convRes.status === 'fulfilled' ? convRes.value : [];
-        const ints = intRes.status === 'fulfilled' ? intRes.value : [];
-        const cnts = contactRes.status === 'fulfilled' ? contactRes.value : [];
+        const convsFulfilled = convRes.status === 'fulfilled';
+        const intsFulfilled = intRes.status === 'fulfilled';
+        const contactsFulfilled = contactRes.status === 'fulfilled';
 
-        if (convs.length > 0) setConversations(convs);
-        if (ints.length > 0) setIntegrations(ints);
-        if (cnts.length > 0) setContacts(cnts);
+        const convs = convsFulfilled ? convRes.value : [];
+        const ints = intsFulfilled ? intRes.value : [];
+        const cnts = contactsFulfilled ? contactRes.value : [];
+
+        // Trust the backend whenever it answers — even an empty inbox is real
+        // state. Mock data is ONLY a fallback when a fetch rejects (backend down).
+        if (convsFulfilled) setConversations(convs);
+        if (intsFulfilled) setIntegrations(ints);
+        if (contactsFulfilled) setContacts(cnts);
 
         const anyFailure = convRes.status === 'rejected' || intRes.status === 'rejected' || contactRes.status === 'rejected';
         if (anyFailure) {
