@@ -3,13 +3,9 @@ import {
   Building2,
   Bell,
   Users,
-  Shield,
   Palette,
   Key,
-  Clock,
-  Check,
   Plus,
-  Trash2,
   Sun,
   Moon,
   Monitor,
@@ -17,7 +13,7 @@ import {
 } from 'lucide-react';
 import { useMessaging } from '../context/MessagingContext';
 import { useTheme } from '../context/ThemeContext';
-import { TEAM_MEMBERS, CURRENT_USER } from '../data/mockData';
+import { TEAM_MEMBERS } from '../data/mockData';
 import { Button } from '../components/ui/Button';
 import { Avatar } from '../components/ui/Avatar';
 import { Modal } from '../components/ui/Modal';
@@ -34,7 +30,6 @@ export const SettingsPage: React.FC = () => {
   const [timezone, setTimezone] = useState('Asia/Dhaka (GMT+6)');
 
   // Notification toggles
-  const [emailAlerts, setEmailAlerts] = useState(true);
   const [desktopNotifs, setDesktopNotifs] = useState(true);
   const [soundAlerts, setSoundAlerts] = useState(true);
   const [slaEscalation, setSlaEscalation] = useState(true);
@@ -422,13 +417,14 @@ export const SettingsPage: React.FC = () => {
                   <input
                     type="password"
                     readOnly
-                    value="mh_live_sec_9938104829104810294819"
+                    value={import.meta.env.VITE_MESSAGEHUB_API_SECRET || '••••••••••••••••'}
+                    placeholder="Set MESSAGEHUB_API_SECRET on your server"
                     className="w-full px-3 py-2 font-mono bg-neutral-100 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 rounded-xl select-all"
                   />
                 </div>
 
                 <div className="p-3 bg-neutral-50 dark:bg-neutral-800 rounded-xl text-neutral-500 text-[11px] leading-relaxed border border-neutral-200 dark:border-neutral-700">
-                  Provide this key in the <code className="font-mono text-neutral-800 dark:text-neutral-200">X-MessageHub-Secret</code> header when dispatching incoming webhooks from your custom PHP or Node.js backend.
+                  Set the real secret on your backend as <code className="font-mono text-neutral-800 dark:text-neutral-200">MESSAGEHUB_API_SECRET</code>. Provide it in the <code className="font-mono text-neutral-800 dark:text-neutral-200">X-MessageHub-Secret</code> header when dispatching incoming webhooks from your custom PHP or Node.js backend.
                 </div>
               </div>
             </div>

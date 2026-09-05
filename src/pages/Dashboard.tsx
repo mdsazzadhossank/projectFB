@@ -3,8 +3,6 @@ import {
   MessageSquare,
   MailCheck,
   TrendingUp,
-  Clock,
-  ShieldCheck,
   Sparkles,
   ArrowRight,
 } from 'lucide-react';
@@ -23,8 +21,8 @@ export const DashboardPage: React.FC = () => {
     syncChannel,
   } = useMessaging();
 
-  const fbIntegration = integrations.find((i) => i.platform === 'facebook')!;
-  const waIntegration = integrations.find((i) => i.platform === 'whatsapp')!;
+  const fbIntegration = integrations.find((i) => i.platform === 'facebook');
+  const waIntegration = integrations.find((i) => i.platform === 'whatsapp');
 
   return (
     <div id="dashboard-page" className="p-4 sm:p-6 lg:p-8 space-y-7 max-w-7xl mx-auto w-full">

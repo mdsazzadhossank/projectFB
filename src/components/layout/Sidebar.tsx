@@ -8,7 +8,6 @@ import {
   Settings,
   X,
   ChevronDown,
-  ShieldCheck,
   Zap,
 } from 'lucide-react';
 import { useMessaging } from '../../context/MessagingContext';

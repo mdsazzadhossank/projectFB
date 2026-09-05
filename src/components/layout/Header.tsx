@@ -2,14 +2,11 @@ import React, { useState } from 'react';
 import {
   Menu,
   Bell,
-  Search,
   HelpCircle,
   Sun,
   Moon,
   CheckCircle2,
   X,
-  ExternalLink,
-  MessageSquare,
 } from 'lucide-react';
 import { useMessaging } from '../../context/MessagingContext';
 import { useTheme } from '../../context/ThemeContext';

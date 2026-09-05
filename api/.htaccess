@@ -1,0 +1,10 @@
+# api/.htaccess
+# Deny direct web access to internal helper/config files.
+# These are only ever included by other PHP endpoints, never fetched directly.
+
+<FilesMatch "^(config\.local\.php|config\.local\.php\.example|bootstrap\.php|auth\.php|db_connect\.php)$">
+  Require all denied
+</FilesMatch>
+
+# Serve PHP files (safe if this dir is your web root — usually it's nested).
+DirectoryIndex index.php

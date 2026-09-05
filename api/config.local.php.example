@@ -1,0 +1,34 @@
+<?php
+// api/config.local.php.example
+// Copy to api/config.local.php and fill in your production values.
+// api/config.local.php is git-ignored — real credentials must never be committed.
+//
+// Priority: real environment variables > values below > XAMPP defaults.
+// If your host lets you set env vars (or Apache SetEnv in .htaccess), use those
+// instead and leave these as ''.
+
+return [
+    // MySQL connection
+    'DB_HOST' => 'localhost',
+    'DB_NAME' => '',
+    'DB_USER' => '',
+    'DB_PASS' => '',
+
+    // API write-auth secret. Must match the frontend's VITE_MESSAGEHUB_API_SECRET
+    // used at build time. When blank, backend write auth is disabled (dev only).
+    'MESSAGEHUB_API_SECRET' => '',
+
+    // Facebook Messenger outbound send (Graph API). Optional — leave blank to disable.
+    'MESSAGEHUB_FB_PAGE_ID' => '',
+    'MESSAGEHUB_FB_PAGE_TOKEN' => '',
+
+    // Meta webhook subscription verification token.
+    'MESSAGEHUB_WEBHOOK_VERIFY_TOKEN' => '',
+
+    // Pusher server-side credentials — used to broadcast inbound webhook events
+    // to the React app. PUSHER_SECRET must never be exposed to the browser.
+    'PUSHER_APP_ID' => '',
+    'PUSHER_KEY' => '',
+    'PUSHER_SECRET' => '',
+    'PUSHER_CLUSTER' => 'ap2',
+];

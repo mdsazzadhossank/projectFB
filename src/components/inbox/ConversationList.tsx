@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Search, Filter, MessageSquareDashed, SlidersHorizontal, Plus } from 'lucide-react';
+import { Search, MessageSquareDashed, Plus } from 'lucide-react';
 import { useMessaging } from '../../context/MessagingContext';
 import { InboxFilter } from '../../types/messaging';
 import { ConversationItem } from './ConversationItem';

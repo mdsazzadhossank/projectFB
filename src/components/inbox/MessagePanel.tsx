@@ -7,8 +7,6 @@ import {
   Archive,
   Info,
   ArrowLeft,
-  PhoneCall,
-  Video,
   CheckCircle2,
 } from 'lucide-react';
 import { useMessaging } from '../../context/MessagingContext';
@@ -17,7 +15,6 @@ import { Avatar } from '../ui/Avatar';
 import { PlatformBadge } from '../ui/Badge';
 import { MessageBubble } from './MessageBubble';
 import { MessageComposer } from './MessageComposer';
-import { MessagePanelSkeleton } from '../ui/Skeleton';
 
 interface MessagePanelProps {
   conversation: Conversation;

@@ -1,14 +1,8 @@
 import React from 'react';
 import {
-  CheckCircle2,
   RefreshCw,
   Sliders,
-  Power,
-  ShieldCheck,
-  ExternalLink,
-  Plus,
   Code2,
-  Lock,
 } from 'lucide-react';
 import { useMessaging } from '../context/MessagingContext';
 import { Button } from '../components/ui/Button';
@@ -122,7 +116,7 @@ export const IntegrationsPage: React.FC = () => {
                 onClick={() => setIsFacebookModalOpen(true)}
                 leftIcon={<Sliders className="w-3.5 h-3.5" />}
               >
-                Configure
+                Connect Now
               </Button>
             </div>
           </div>
@@ -207,7 +201,7 @@ export const IntegrationsPage: React.FC = () => {
                 onClick={() => setIsWhatsAppModalOpen(true)}
                 leftIcon={<Sliders className="w-3.5 h-3.5" />}
               >
-                Configure
+                Connect Now
               </Button>
             </div>
           </div>

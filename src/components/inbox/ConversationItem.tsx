@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pin, Clock } from 'lucide-react';
+import { Pin } from 'lucide-react';
 import { Conversation } from '../../types/messaging';
 import { Avatar } from '../ui/Avatar';
 import { PlatformBadge } from '../ui/Badge';

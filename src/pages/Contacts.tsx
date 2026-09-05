@@ -4,17 +4,7 @@ import {
   Plus,
   Users,
   MessageSquare,
-  Phone,
-  Mail,
-  MapPin,
-  Tag,
-  ExternalLink,
-  MoreHorizontal,
-  ChevronDown,
-  Edit2,
-  Trash2,
   Download,
-  Filter,
 } from 'lucide-react';
 import { useMessaging } from '../context/MessagingContext';
 import { Contact, Platform } from '../types/messaging';
@@ -28,7 +18,6 @@ export const ContactsPage: React.FC = () => {
   const {
     contacts,
     addNewContact,
-    updateContact,
     setActivePage,
     setActiveConversation,
     conversations,
@@ -40,7 +29,6 @@ export const ContactsPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filterTab, setFilterTab] = useState<'all' | 'facebook' | 'whatsapp' | 'vip' | 'lead'>('all');
   const [selectedContactForView, setSelectedContactForView] = useState<Contact | null>(null);
-  const [editingContact, setEditingContact] = useState<Contact | null>(null);
 
   // Form states for Add Contact
   const [newName, setNewName] = useState('');

@@ -3,15 +3,9 @@ import {
   Phone,
   Mail,
   MapPin,
-  Calendar,
-  MessageSquare,
-  Tag,
-  StickyNote,
   Plus,
   X,
   Copy,
-  ExternalLink,
-  Edit2,
   Check,
 } from 'lucide-react';
 import { useMessaging } from '../../context/MessagingContext';

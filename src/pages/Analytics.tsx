@@ -11,17 +11,10 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
   ResponsiveContainer,
 } from 'recharts';
 import {
-  TrendingUp,
-  Clock,
-  MessageSquare,
   ArrowUpRight,
-  Sparkles,
-  Zap,
-  Calendar,
 } from 'lucide-react';
 import { useMessaging } from '../context/MessagingContext';
 import { useTheme } from '../context/ThemeContext';

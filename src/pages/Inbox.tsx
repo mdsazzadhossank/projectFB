@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageSquareOff, MessageSquare } from 'lucide-react';
+import { MessageSquare } from 'lucide-react';
 import { useMessaging } from '../context/MessagingContext';
 import { ConversationList } from '../components/inbox/ConversationList';
 import { MessagePanel } from '../components/inbox/MessagePanel';
@@ -9,7 +9,6 @@ import { EmptyState } from '../components/ui/EmptyState';
 export const InboxPage: React.FC = () => {
   const {
     activeConversation,
-    setActiveConversation,
     isCustomerDetailsOpen,
     setIsCustomerDetailsOpen,
     isMobileConversationOpen,
